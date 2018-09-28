@@ -1,0 +1,21 @@
+<p>
+  pizza-order works!
+</p>
+
+<div *ngFor="let pizza of pizzas | async">
+    <h3>Pizza id: {{pizza.id}}</h3>
+    <p>Size; {{pizza.size}}</p>
+    <button *ngIf="pizza.size=='small'"
+            (click)="updatePizza(pizza.id, 'large')">
+          Enlarge
+    </button>
+    <button *ngIf="pizza.size=='large'"
+            (click)="updatePizza(pizza.id, 'small')">
+          Get small
+    </button>
+
+    <button (click)="deletePizza(pizza.id)">DELETE</button>
+
+</div>
+
+<button (click)="createPizza()">Create new pizza</button>
